@@ -22,22 +22,22 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
        static void Main(string[] args)
         {
-            bool logloop = true;
+            bool logloop = true; //tao bien vong lap while
             while (logloop)
-            {
+            {   //xuat ra man hinh cac tuy chon
                 Console.WriteLine("Hello");
                 Console.WriteLine("1. login to admin");
                 Console.WriteLine("2.login to user");
                 Console.WriteLine("3. exist ");
                 Console.WriteLine("Your choose : ");
+                // nhap thong tin tu man hinh
                 string choose = Console.ReadLine() ?? "";
-
-
+                // switch case
                 switch (choose)
                 {
                     case "1":
-                        AdminPL admin = new AdminPL();
-                        admin.Login();
+                        AdminPL admin = new AdminPL(); 
+                        admin.Login();              // goi phuong thuc login co bien admin
                         Console.WriteLine("admin");
                         break;
                     case "2":
@@ -49,19 +49,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     default:
                         Console.WriteLine("input erro");
                         break;
-
-
-
-
                 }
-
-
-
             }
-
-
-
-
         }
     }
 }
