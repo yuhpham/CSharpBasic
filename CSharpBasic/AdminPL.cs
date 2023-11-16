@@ -4,25 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpBasic
+namespace MyApp
 {
     internal class AdminPL
     {
-        public void Login() 
+        public static bool Login
         {
-            Console.WriteLine("Admin -- Login");
-            Console.WriteLine("Email: "); String email = Console.ReadLine();
-            Console.WriteLine("Password: "); string password = Console.ReadLine();
-
-            AdminPL adminPL = new AdminPL();
-
-            bool isDone = adminPL.Login(email,password)
-                {
-
-
-
-            }
+            get
+            {
+                Console.WriteLine("Admin -- Login");
+                Console.WriteLine("Email: "); String email = Console.ReadLine() ?? "";
+                Console.WriteLine("Password: "); string password = Console.ReadLine() ?? "";
+             }
+            set { Console.WriteLine(value); }
         }
-
     }
 }

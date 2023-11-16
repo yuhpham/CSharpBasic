@@ -1,6 +1,6 @@
 ﻿
 
-using CSharpBasic;
+using MyApp;
 using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -36,8 +36,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 switch (choose)
                 {
                     case "1":
-                        AdminPL admin = new AdminPL(); 
-                        admin.Login();              // goi phuong thuc login co bien admin
+                        AdminPL admin = new AdminPL();
+                        AdminPL.                        Login;              // goi phuong thuc login co bien admin
                         Console.WriteLine("admin");
                         break;
                     case "2":
