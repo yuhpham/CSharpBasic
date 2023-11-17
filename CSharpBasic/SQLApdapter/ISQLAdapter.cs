@@ -52,4 +52,7 @@ namespace CSharpBasic.SQLApdapter
         /// <returns></returns>
         int Delete(Guid id);
     }
+
+
+
 }

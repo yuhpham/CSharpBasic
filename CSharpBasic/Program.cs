@@ -1,5 +1,6 @@
 ﻿
 
+using CSharpBasic.Service;
 using MyApp;
 using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
@@ -20,9 +21,20 @@ namespace MyApp // Note: actual namespace depends on the project name.
 {
     public class Program
     {
-       static void Main(string[] args)
+
+        public static void Main(string[] args)
         {
-            bool logloop = true; //tao bien vong lap while
+            UserService service = new UserService();
+            service.GET_DATA_USER();
+
+
+        }
+
+
+    }
+}
+
+           /* bool logloop = true; //tao bien vong lap while
             while (logloop)
             {   //xuat ra man hinh cac tuy chon
                 Console.WriteLine("Hello");
@@ -36,11 +48,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 switch (choose)
                 {
                     case "1":
-                        AdminPL admin = new AdminPL();
-                        AdminPL.                        Login;              // goi phuong thuc login co bien admin
+
                         Console.WriteLine("admin");
                         break;
                     case "2":
+
                         Console.WriteLine("user");
                         break;
                     case "3":
@@ -51,6 +63,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         break;
                 }
             }
-        }
-    }
-}
+        }*/
+    
+
