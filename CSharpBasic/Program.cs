@@ -23,18 +23,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
 
         public static void Main(string[] args)
-        {
-            UserService service = new UserService();
-            service.GET_DATA_USER();
-
-
-        }
-
-
-    }
-}
-
-           /* bool logloop = true; //tao bien vong lap while
+        {        
+            bool logloop = true; //tao bien vong lap while
             while (logloop)
             {   //xuat ra man hinh cac tuy chon
                 Console.WriteLine("Hello");
@@ -63,6 +53,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         break;
                 }
             }
-        }*/
-    
+        }
+    }
+      
+}
 

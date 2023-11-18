@@ -14,14 +14,37 @@ namespace CSharpBasic.Service
 
         public List<User> GET_DATA_USER()
         {
+
+            List<User> users = GetData();
+
+            if (users != null)
+            {
+                foreach (User user in users)
+                {
+                    Console.WriteLine($"ID: {user.UserID}, Name: {user.Name}, Email: {user.Email}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No data found or an error occurred.");
+            }
             return user.GetData();
 
-
-
-}
-
-
-
-
+        }
     }
 }
+            
+        
+          
+        
+       
+       
+
+        
+      
+
+        
+
+
+
+    

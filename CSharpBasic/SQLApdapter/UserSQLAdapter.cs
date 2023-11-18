@@ -61,39 +61,27 @@ namespace CSharpBasic.SQLApdapter
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return null;
-
+              
             }
-
-        }
+            return null;        }
 
         public int Insert(User item)
-        { 
+        {
             try
             {
-                List<User> UserList = new List<User>();
-
-                using (SqlConnection connection = new SqlConnection(ConnectionString)) // ket noi database
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
-
                     connection.Open();
-                    // Them du lieu vao table User
-                    string query = "INSERT INTO User (Name, Email, Password) VALUES (@Name, @Email, @Password)";
 
-                    
+                    string query = "INSERT INTO User (Name, Email, Password)  VALUES (@Name, @Email, @Password)";
                     SqlCommand command = new SqlCommand(query, connection);
-                   
 
-                    command.Parameters.AddWithValue("@Name", "name");
-                    command.Parameters.AddWithValue("@Email", "email");
-                    command.Parameters.AddWithValue("@Password", "password");
+                    command.Parameters.AddWithValue("@Name", item.Name);
+                    command.Parameters.AddWithValue("@Email", item.Email);
+                    command.Parameters.AddWithValue("@Password", item.Password);
+
                     command.ExecuteNonQuery();
-                    UserList.Add(item);   
-                    connection.Close();
-                    
-
                 }
-                
             }
             catch (Exception ex)
             {
@@ -101,10 +89,33 @@ namespace CSharpBasic.SQLApdapter
                 return 0;
             }
             return 1;
-
         }
 
+
         public int Update(User item)
+        {   
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                {
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand("UPDATE User SET Email = @Email WHERE UserID = @id", connection);
+
+                    command.Parameters.AddWithValue("@Email", item.Email);
+                    command.Parameters.AddWithValue("@id", item.UserID);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return 1;
+        }
+
+        internal List<User> Update()
         {
             throw new NotImplementedException();
         }
