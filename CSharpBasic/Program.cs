@@ -1,6 +1,8 @@
 ﻿
 
+using CSharpBasic.Business;
 using CSharpBasic.Service;
+using Microsoft.Azure.Documents;
 using MyApp;
 using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
@@ -21,8 +23,16 @@ namespace MyApp // Note: actual namespace depends on the project name.
 {
     public class Program
     {
+        public static void Main(string[] args) 
+        {
+           
+            UserService userService = new UserService();
+            userService.GetData();
+        }
+    }
+}
 
-        public static void Main(string[] args)
+/*        public static void Main(string[] args)
         {        
             bool logloop = true; //tao bien vong lap while
             while (logloop)
@@ -53,8 +63,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         break;
                 }
             }
-        }
-    }
+        }*/
+ 
       
-}
+
 

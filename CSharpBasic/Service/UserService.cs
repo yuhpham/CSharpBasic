@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CSharpBasic.Service
 {
-    internal class UserService : UserSQLAdapter
+    public class UserService : UserSQLAdapter
     {
         private UserSQLAdapter user = new UserSQLAdapter();
 

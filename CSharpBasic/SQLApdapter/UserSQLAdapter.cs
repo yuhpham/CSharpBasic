@@ -1,12 +1,15 @@
 ﻿using CSharpBasic.Business;
+using Microsoft.Azure.Documents;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-
+using User = CSharpBasic.Business.User;
 
 namespace CSharpBasic.SQLApdapter
 {
@@ -15,24 +18,24 @@ namespace CSharpBasic.SQLApdapter
         public string ConnectionString { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string TableName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public int Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public User Get(Guid id)
         {
             throw new NotImplementedException();
+
         }
 
         public List<User> GetData()
         {
+            List<User> UserList = new List<User>();
             try
             {
-                List<User> UserList = new List<User>();
+
 
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
+
                     connection.Open();
 
                     string query = "SELECT * FROM Users"; // lay du lieu tu bang User
@@ -56,14 +59,17 @@ namespace CSharpBasic.SQLApdapter
                         }
                     }
                 }
-                return UserList; // gia tri tra ve
+
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-              
+
             }
-            return null;        }
+
+            return UserList;
+        }
 
         public int Insert(User item)
         {
@@ -93,7 +99,7 @@ namespace CSharpBasic.SQLApdapter
 
 
         public int Update(User item)
-        {   
+        {
             try
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -113,11 +119,11 @@ namespace CSharpBasic.SQLApdapter
                 Console.WriteLine(ex.Message);
             }
             return 1;
-        }
 
-        internal List<User> Update()
-        {
-            throw new NotImplementedException();
         }
+        public int Delete(Guid id)
+        { throw new NotImplementedException(); }
+
+
     }
 }

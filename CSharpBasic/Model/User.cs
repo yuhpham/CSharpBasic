@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CSharpBasic.Business
 {
+    [Table("User")]
     public class User
     { public Guid UserID { get; set; }
         public string Name { get; set; }    
