@@ -28,6 +28,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
            
             UserService userService = new UserService();
             userService.GetData();
+            return;
         }
     }
 }

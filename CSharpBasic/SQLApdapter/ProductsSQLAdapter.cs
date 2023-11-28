@@ -16,9 +16,52 @@ namespace CSharpBasic.SQLApdapter
 
 
 
-        public Products Get(Guid id)
+        public Products Get(Guid ProducId)
         {
-            throw new NotImplementedException();
+            List<Products> ProductsList = new List<Products>();
+            try
+            {
+                using SqlConnection connection = new SqlConnection(ConnectionString);
+                connection.Open();
+
+                string query = "SELECT * FROM Products WHERE ProductID = ProdcuctID";
+                using (SqlCommand command = new SqlCommand(query, connection)) //khoi tao ten bien cho ham
+                {
+
+                    using (SqlDataReader reader = command.ExecuteReader()) // su dung thu vien sqldatareader
+                    {
+                        while (reader.Read()) //tao vong lap White
+                        {
+                            Products products = new Products();
+                            {
+                                products.ProductID = Guid.Parse(reader["ProductID"].ToString());
+                                products.ProductName = reader["ProductName"].ToString();
+                                products.Price = decimal.Parse(reader["Price"].ToString());
+                                products.Inventory = int.Parse(reader["Inventory"].ToString());
+                                products.Category = reader["ProductName"].ToString();
+
+                            };
+
+                            ProductsList.Add(products);
+                        }
+
+
+
+
+                    }
+
+                }
+            }
+
+
+
+
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
         }
 
 
