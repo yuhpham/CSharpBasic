@@ -2,6 +2,7 @@
 
 using CSharpBasic.Business;
 using CSharpBasic.Service;
+using CSharpBasic.SQLApdapter;
 using Microsoft.Azure.Documents;
 using MyApp;
 using System.Linq.Expressions;
@@ -23,12 +24,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
 {
     public class Program
     {
-        public static void Main(string[] args) 
+        private static async Task Main(string[] args)
         {
-           
-            UserService userService = new UserService();
-            userService.GetData();
-            return;
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            await UserService.Index();
+
         }
     }
 }

@@ -11,8 +11,9 @@ namespace CSharpBasic.SQLApdapter
 {
     internal class ProductsSQLAdapter : ISQLAdapter<Products>
     {
-        public string ConnectionString { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string TableName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ConnectionString { get; set; } = "Data Source=DESKTOP-NH4P93C\\MSSQLSERVER01;Initial Catalog=CSharpBasic;Integrated Security=True";
+        public string TableName { get; set; } = "Products";
+       
 
 
 
